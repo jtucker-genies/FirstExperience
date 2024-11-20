@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 53
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 960994182, guid: f1503e19dbfc34a668db22b13647afad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _envInfos:
+  - rid: 654283396928503808
+  - rid: 654283400925937664
+  - rid: 654283396928503809
+  references:
+    version: 2
+    RefIds:
+    - rid: 654283396928503808
+      type: {class: NodeJsEnvInfo, ns: Genies.SDK.Scripting.Editor.TS.Environments.Initializers, asm: Genies.Components.Sdk.Scripting.Shared.Environments}
+      data:
+        nodeExecutablePath: /Users/jaspertucker/Documents/Experiences/FirstExperience/Genies/Scripting/node/bin/node
+        npmExecutablePath: /Users/jaspertucker/Documents/Experiences/FirstExperience/Genies/Scripting/node/bin/npm
+        installedVersion: v21.7.3
+        installedPath: /Users/jaspertucker/Documents/Experiences/FirstExperience/Genies/Scripting/node
+    - rid: 654283396928503809
+      type: {class: TsCompilerEnvInfo, ns: Genies.SDK.Scripting.Editor.TS.Compiler.Environment, asm: Genies.Components.SDK.Scripting.Editor}
+      data:
+        executablePath: /Users/jaspertucker/Documents/Experiences/FirstExperience/node_modules/genies-typescript-compiler/dist/compiler/index.js
+        installedVersion: 1.1.21
+        tgzPath: /Users/jaspertucker/Documents/Experiences/FirstExperience/Genies/Scripting/genies-typescript-compiler-1.1.21.tgz
+    - rid: 654283400925937664
+      type: {class: TypeScriptModuleInfo, ns: Genies.SDK.Scripting.Editor.TS.Environments.Initializers, asm: Genies.Components.SDK.Scripting.Editor}
+      data:
+        executablePath: /Users/jaspertucker/Documents/Experiences/FirstExperience/node_modules/typescript/lib/tsc.js
+        installedVersion: 5.4.5

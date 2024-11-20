@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: e03f71d62039b4b9aa9ad17ee732a290
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 850056264, guid: b6a406390b4794f798185bff6f9a5296, type: 3}
+  SerializedAsset: '{"IsCompiled":true,"ScriptHash":"682c9d2491ecb837861e583d8521f8d6","CompilerVersion":"1.1.21","Source":"\"use
+    strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\nconst UnityEngine_UI_1 = require(\"UnityEngine.UI\");\nconst
+    GameManager_1 = require(\"Assets/Scripts/GameManager\");\nclass NoteBlock extends
+    UnityEngine_1.MonoBehaviour {\n    constructor() {\n        super(...arguments);\n       
+    this.speed = 3;\n        this.movementAmount = 0.75;\n    }\n    Start() {\n       
+    this.button = this.GetComponentInChildren($typeof(UnityEngine_UI_1.Button));\n       
+    if (this.button != null)\n            this.button.onClick.AddListener(() => this.ClickBlock());\n   
+    }\n    Update() {\n        this.MoveBlock();\n    }\n    MoveBlock() {\n       
+    let prevPos = this.transform.position;\n        let targetPos = new UnityEngine_1.Vector3(prevPos.x,
+    prevPos.y, prevPos.z - this.movementAmount);\n        let newPos = UnityEngine_1.Vector3.MoveTowards(this.transform.position,
+    targetPos, this.speed * UnityEngine_1.Time.deltaTime);\n        this.transform.position
+    = newPos;\n    }\n    // allow to click block\n    OnTriggerEnter(coll) {\n       
+    if (coll.gameObject.CompareTag(\"End Zone\")) {\n            this.valid = true;\n           
+    UnityEngine_1.Debug.Log(\"valid\");\n        }\n    }\n    // disable ability
+    to click block, destroy, and subtract points\n    OnTriggerExit(coll) {\n       
+    if (coll.gameObject.CompareTag(\"End Zone\")) {\n            this.valid = false;\n           
+    UnityEngine_1.Debug.Log(\"not valid\");\n            if (!this.clicked)\n               
+    GameManager_1.default.Instance.AddPoints(-1);\n            this.button.onClick.RemoveListener(()
+    => this.ClickBlock());\n            UnityEngine_1.Object.Destroy(this.gameObject);\n           
+    // could add object pooling later\n        }\n    }\n    ClickBlock() {\n       
+    this.clicked = true;\n        if (this.valid)\n            GameManager_1.default.Instance.AddPoints(1);\n       
+    else\n            GameManager_1.default.Instance.AddPoints(-1);\n        this.button.onClick.RemoveListener(()
+    => this.ClickBlock());\n        UnityEngine_1.Object.Destroy(this.gameObject);\n   
+    }\n}\nexports.default = NoteBlock;\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTm90ZUJsb2NrLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTm90ZUJsb2NrLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsNkNBQW9GO0FBQ3BGLG1EQUF3QztBQUV4Qyw0REFBcUQ7QUFFckQsTUFBcUIsU0FBVSxTQUFRLDJCQUFhO0lBQXBEOztRQUVRLFVBQUssR0FBVSxDQUFDLENBQUM7UUFDakIsbUJBQWMsR0FBVSxJQUFJLENBQUM7SUFzRHJDLENBQUM7SUFoRFcsS0FBSztRQUNULElBQUksQ0FBQyxNQUFNLEdBQUksSUFBSSxDQUFDLHNCQUFzQixDQUFDLE9BQU8sQ0FBQyx1QkFBTSxDQUFDLENBQXFDLENBQUM7UUFDaEcsSUFBSSxJQUFJLENBQUMsTUFBTSxJQUFJLElBQUk7WUFDbkIsSUFBSSxDQUFDLE1BQU0sQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRSxDQUFDLElBQUksQ0FBQyxVQUFVLEVBQUUsQ0FBQyxDQUFDO0lBQ2pFLENBQUM7SUFFTyxNQUFNO1FBQ1gsSUFBSSxDQUFDLFNBQVMsRUFBRSxDQUFDO0lBQ3BCLENBQUM7SUFFTyxTQUFTO1FBQ2IsSUFBSSxPQUFPLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUM7UUFDdEMsSUFBSSxTQUFTLEdBQUcsSUFBSSxxQkFBTyxDQUFDLE9BQU8sQ0FBQyxDQUFDLEVBQUUsT0FBTyxDQUFDLENBQUMsRUFBRSxPQUFPLENBQUMsQ0FBQyxHQUFHLElBQUksQ0FBQyxjQUFjLENBQUMsQ0FBQztRQUNuRixJQUFJLE1BQU0sR0FBRyxxQkFBTyxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsRUFBRSxTQUFTLEVBQUUsSUFBSSxDQUFDLEtBQUssR0FBRyxrQkFBSSxDQUFDLFNBQVMsQ0FBQyxDQUFDO1FBQ2xHLElBQUksQ0FBQyxTQUFTLENBQUMsUUFBUSxHQUFHLE1BQU0sQ0FBQztJQUNyQyxDQUFDO0lBRUQsdUJBQXVCO0lBQ3ZCLGNBQWMsQ0FBQyxJQUFjO1FBQ3pCLElBQUksSUFBSSxDQUFDLFVBQVUsQ0FBQyxVQUFVLENBQUMsVUFBVSxDQUFDLEVBQUUsQ0FBQztZQUN6QyxJQUFJLENBQUMsS0FBSyxHQUFHLElBQUksQ0FBQztZQUNsQixtQkFBSyxDQUFDLEdBQUcsQ0FBQyxPQUFPLENBQUMsQ0FBQztRQUN2QixDQUFDO0lBQ0wsQ0FBQztJQUVELCtEQUErRDtJQUMvRCxhQUFhLENBQUMsSUFBYztRQUN4QixJQUFJLElBQUksQ0FBQyxVQUFVLENBQUMsVUFBVSxDQUFDLFVBQVUsQ0FBQyxFQUFFLENBQUM7WUFDekMsSUFBSSxDQUFDLEtBQUssR0FBRyxLQUFLLENBQUM7WUFDbkIsbUJBQUssQ0FBQyxHQUFHLENBQUMsV0FBVyxDQUFDLENBQUM7WUFDdkIsSUFBSSxDQUFDLElBQUksQ0FBQyxPQUFPO2dCQUFFLHFCQUFXLENBQUMsUUFBUSxDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO1lBQ3RELElBQUksQ0FBQyxNQUFNLENBQUMsT0FBTyxDQUFDLGNBQWMsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxJQUFJLENBQUMsVUFBVSxFQUFFLENBQUMsQ0FBQztZQUM1RCxvQkFBTSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsVUFBVSxDQUFDLENBQUM7WUFDaEMsaUNBQWlDO1FBQ3JDLENBQUM7SUFDTCxDQUFDO0lBRU8sVUFBVTtRQUNkLElBQUksQ0FBQyxPQUFPLEdBQUcsSUFBSSxDQUFDO1FBRXBCLElBQUksSUFBSSxDQUFDLEtBQUs7WUFDVixxQkFBVyxDQUFDLFFBQVEsQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLENBQUM7O1lBRWxDLHFCQUFXLENBQUMsUUFBUSxDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO1FBRXZDLElBQUksQ0FBQyxNQUFNLENBQUMsT0FBTyxDQUFDLGNBQWMsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxJQUFJLENBQUMsVUFBVSxFQUFFLENBQUMsQ0FBQztRQUM1RCxvQkFBTSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsVUFBVSxDQUFDLENBQUM7SUFDcEMsQ0FBQztDQUNKO0FBekRELDRCQXlEQyJ9","AssetPath":"Assets/Scripts/NoteBlock.ts","IsDirty":true,"DefaultTypeName":"Assets/Scripts/NoteBlock.NoteBlock","IsMonobehaviour":true,"IsScriptableObj":false,"Properties":[],"InheritanceChain":["Assets/Scripts/NoteBlock.NoteBlock","UnityEngine.MonoBehaviour","UnityEngine.Behaviour","UnityEngine.Component","UnityEngine.Object","Assets/GeniesSdk/Typing/index.d.System.Object"],"SupportedUiEvents":0,"DisplayName":"NoteBlock","name":"NoteBlock","hideFlags":8}'

@@ -1,0 +1,47 @@
+fileFormatVersion: 2
+guid: e5ddb60f2a14c409d94848bf64c090ca
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 850056264, guid: b6a406390b4794f798185bff6f9a5296, type: 3}
+  SerializedAsset: '{"IsCompiled":true,"ScriptHash":"2e5d9114ed8299201c0d8b5b00d2a779","CompilerVersion":"1.1.21","Source":"\"use
+    strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst
+    Genies_Components_SDK_Core_1 = require(\"Genies.Components.SDK.Core\");\nconst
+    Genies_Components_Sdk_External_Avatars_1 = require(\"Genies.Components.Sdk.External.Avatars\");\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\nclass PlayerController extends UnityEngine_1.MonoBehaviour
+    {\n    constructor() {\n        // class taken from tutorial, not used\n       
+    super(...arguments);\n        this.targetLane = 0;\n    }\n    async Start()
+    {\n        await $promise(Genies_Components_SDK_Core_1.GeniesSdk.Initialize());\n       
+    await this.LoadAvatar();\n        PlayerController.OnAvatarLoaded.trigger();\n   
+    }\n    //Load Avatar, attach to Player Root, and trigger the run animation\n   
+    async LoadAvatar() {\n        let userAvatar = await $promise(Genies_Components_Sdk_External_Avatars_1.UserAvatar.CreateAndLoadUserAvatar());\n       
+    userAvatar.transform.parent = this.transform;\n        userAvatar.SetAnimatorController(this.playerAnimator);\n       
+    //userAvatar.GetComponentInChildren<Animator>(true).SetFloat(\"idle_run_walk\",
+    1);\n    }\n    Update() {\n        //this.CheckSwipe();\n        //this.MovePlayer();\n   
+    }\n    CheckSwipe() {\n        if (UnityEngine_1.Input.GetMouseButtonDown(0))
+    {\n            this.mouseStartPos = UnityEngine_1.Input.mousePosition;\n       
+    }\n        if (UnityEngine_1.Input.GetMouseButtonUp(0)) {\n            // Calculate
+    the swipe direction vector\n            let direction = UnityEngine_1.Vector3.op_Subtraction(UnityEngine_1.Input.mousePosition,
+    this.mouseStartPos);\n            // Determine if the swipe was more horizontal
+    than vertical\n            if ( // @ts-ignore\n            UnityEngine_1.Mathf.Abs_EBB7509C_H82424F3E(direction.x)
+    > // @ts-ignore\n                UnityEngine_1.Mathf.Abs_EBB7509C_H82424F3E(direction.y))
+    {\n                //Change target lane based on swipe direction\n               
+    if (direction.x > 0 && this.targetLane < 1) {\n                    this.targetLane
+    = this.targetLane + 1;\n                }\n                if (direction.x <
+    0 && this.targetLane > -1) {\n                    this.targetLane = this.targetLane
+    - 1;\n                }\n            }\n        }\n    }\n    //Move player towards
+    target lane\n    MovePlayer() {\n        let playerPos = this.transform.position;\n       
+    let targetPos = new UnityEngine_1.Vector3(this.targetLane, playerPos.y, playerPos.z);\n       
+    let newPos = UnityEngine_1.Vector3.MoveTowards(playerPos, targetPos, this.playerSpeed
+    * UnityEngine_1.Time.deltaTime);\n        this.transform.position = newPos;\n   
+    }\n}\nPlayerController.OnAvatarLoaded = new GeniesEvent();\nexports.default =
+    PlayerController;\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUGxheWVyQ29udHJvbGxlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlBsYXllckNvbnRyb2xsZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSwyRUFBdUQ7QUFDdkQsbUdBQW9FO0FBQ3BFLDZDQUFvSTtBQUVwSSxNQUFxQixnQkFBaUIsU0FBUSwyQkFBYTtJQUEzRDtRQUVJLHNDQUFzQzs7UUFNOUIsZUFBVSxHQUFHLENBQUMsQ0FBQztJQTBEM0IsQ0FBQztJQXJERyxLQUFLLENBQUMsS0FBSztRQUNQLE1BQU0sUUFBUSxDQUFDLHNDQUFTLENBQUMsVUFBVSxFQUFFLENBQUMsQ0FBQztRQUN2QyxNQUFNLElBQUksQ0FBQyxVQUFVLEVBQUUsQ0FBQztRQUN4QixnQkFBZ0IsQ0FBQyxjQUFjLENBQUMsT0FBTyxFQUFFLENBQUM7SUFDOUMsQ0FBQztJQUVELG1FQUFtRTtJQUMzRCxLQUFLLENBQUMsVUFBVTtRQUNwQixJQUFJLFVBQVUsR0FBRyxNQUFNLFFBQVEsQ0FBQyxtREFBVSxDQUFDLHVCQUF1QixFQUFFLENBQWUsQ0FBQztRQUNwRixVQUFVLENBQUMsU0FBUyxDQUFDLE1BQU0sR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDO1FBQzdDLFVBQVUsQ0FBQyxxQkFBcUIsQ0FBQyxJQUFJLENBQUMsY0FBYyxDQUFDLENBQUM7UUFDdEQsaUZBQWlGO0lBQ3JGLENBQUM7SUFFRCxNQUFNO1FBQ0Ysb0JBQW9CO1FBQ3BCLG9CQUFvQjtJQUN4QixDQUFDO0lBRU8sVUFBVTtRQUNkLElBQUksbUJBQUssQ0FBQyxrQkFBa0IsQ0FBQyxDQUFDLENBQUMsRUFDL0IsQ0FBQztZQUNHLElBQUksQ0FBQyxhQUFhLEdBQUcsbUJBQUssQ0FBQyxhQUFhLENBQUM7UUFDN0MsQ0FBQztRQUVELElBQUksbUJBQUssQ0FBQyxnQkFBZ0IsQ0FBQyxDQUFDLENBQUMsRUFDN0IsQ0FBQztZQUNHLHVDQUF1QztZQUN2QyxJQUFJLFNBQVMsR0FBRyxxQkFBTyxDQUFDLGNBQWMsQ0FBQyxtQkFBSyxDQUFDLGFBQWEsRUFBRSxJQUFJLENBQUMsYUFBYSxDQUFDLENBQUM7WUFFaEYsMkRBQTJEO1lBQzNELEtBQUksYUFBYTtZQUNqQixtQkFBSyxDQUFDLHNCQUFzQixDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUMsR0FBRyxhQUFhO2dCQUNyRCxtQkFBSyxDQUFDLHNCQUFzQixDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUMsRUFDN0MsQ0FBQztnQkFDRyw2Q0FBNkM7Z0JBQzdDLElBQUksU0FBUyxDQUFDLENBQUMsR0FBRyxDQUFDLElBQUksSUFBSSxDQUFDLFVBQVUsR0FBRyxDQUFDLEVBQUUsQ0FBQztvQkFDekMsSUFBSSxDQUFDLFVBQVUsR0FBRyxJQUFJLENBQUMsVUFBVSxHQUFHLENBQUMsQ0FBQztnQkFDMUMsQ0FBQztnQkFDRCxJQUFJLFNBQVMsQ0FBQyxDQUFDLEdBQUcsQ0FBQyxJQUFJLElBQUksQ0FBQyxVQUFVLEdBQUcsQ0FBQyxDQUFDLEVBQUUsQ0FBQztvQkFDMUMsSUFBSSxDQUFDLFVBQVUsR0FBRyxJQUFJLENBQUMsVUFBVSxHQUFHLENBQUMsQ0FBQztnQkFDMUMsQ0FBQztZQUNMLENBQUM7UUFDTCxDQUFDO0lBQ0wsQ0FBQztJQUVELGlDQUFpQztJQUN6QixVQUFVO1FBQ2QsSUFBSSxTQUFTLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUM7UUFDeEMsSUFBSSxTQUFTLEdBQUcsSUFBSSxxQkFBTyxDQUFDLElBQUksQ0FBQyxVQUFVLEVBQUUsU0FBUyxDQUFDLENBQUMsRUFBRSxTQUFTLENBQUMsQ0FBQyxDQUFDLENBQUM7UUFDdkUsSUFBSSxNQUFNLEdBQUcscUJBQU8sQ0FBQyxXQUFXLENBQUMsU0FBUyxFQUFFLFNBQVMsRUFBRSxJQUFJLENBQUMsV0FBVyxHQUFHLGtCQUFJLENBQUMsU0FBUyxDQUFDLENBQUM7UUFDMUYsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsTUFBTSxDQUFDO0lBQ3JDLENBQUM7O0FBdERhLCtCQUFjLEdBQXFCLElBQUksV0FBVyxFQUFNLEFBQTFDLENBQTJDO2tCQVh0RCxnQkFBZ0IifQ==","AssetPath":"Assets/Scripts/PlayerController.ts","IsDirty":true,"DefaultTypeName":"Assets/Scripts/PlayerController.PlayerController","IsMonobehaviour":true,"IsScriptableObj":false,"Properties":[{"Path":"playerSpeed","Name":"playerSpeed","TypeName":"number","AssemblyName":null,"EnumKeys":[],"EnumValues":[],"IsGeniesBehaviourRef":false,"IsGeniesScriptableObjectRef":false,"Decorators":[{"Type":"Header","Args":["\"Player
+    Settings\""]},{"Type":"SerializeField","Args":[]}],"Initializers":[],"ArrayDimension":-1,"IsArray":false,"IsEnum":false,"ArrayElementInitializerHash":null,"ArrayElementInitializer":null,"ChildProperties":[],"PrettyName":"Player
+    Speed"},{"Path":"playerAnimator","Name":"playerAnimator","TypeName":"UnityEngine.RuntimeAnimatorController","AssemblyName":null,"EnumKeys":[],"EnumValues":[],"IsGeniesBehaviourRef":false,"IsGeniesScriptableObjectRef":false,"Decorators":[{"Type":"SerializeField","Args":[]}],"Initializers":[],"ArrayDimension":-1,"IsArray":false,"IsEnum":false,"ArrayElementInitializerHash":null,"ArrayElementInitializer":null,"ChildProperties":[],"PrettyName":"Player
+    Animator"},{"Path":"OnAvatarLoaded","Name":"OnAvatarLoaded","TypeName":"Assets/GeniesSdk/Typing/global.d.global.GeniesEvent","AssemblyName":null,"EnumKeys":[],"EnumValues":[],"IsGeniesBehaviourRef":false,"IsGeniesScriptableObjectRef":false,"Decorators":[],"Initializers":["new
+    Assets/GeniesSdk/Typing/global.d.global.GeniesEvent();"],"ArrayDimension":-1,"IsArray":false,"IsEnum":false,"ArrayElementInitializerHash":null,"ArrayElementInitializer":null,"ChildProperties":[],"PrettyName":"On
+    Avatar Loaded"}],"InheritanceChain":["Assets/Scripts/PlayerController.PlayerController","UnityEngine.MonoBehaviour","UnityEngine.Behaviour","UnityEngine.Component","UnityEngine.Object","Assets/GeniesSdk/Typing/index.d.System.Object"],"SupportedUiEvents":0,"DisplayName":"PlayerController","name":"PlayerController","hideFlags":8}'

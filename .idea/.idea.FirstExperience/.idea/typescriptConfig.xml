@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project version="4">
+  <component name="TypeScriptCompiler">
+    <option name="nodeInterpreterTextField" value="/Users/jaspertucker/Documents/Experiences/FirstExperience/Genies/Scripting/node/bin/node" />
+    <option name="typeScriptServiceDirectory" value="/Users/jaspertucker/Documents/Experiences/FirstExperience/node_modules/typescript/lib" />
+    <option name="versionType" value="SERVICE_DIRECTORY" />
+  </component>
+</project>

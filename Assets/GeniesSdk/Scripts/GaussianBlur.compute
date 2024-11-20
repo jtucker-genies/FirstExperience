@@ -1,0 +1,58 @@
+#pragma kernel CSHorizontalBlur
+#pragma kernel CSVerticalBlur
+
+// This compute shader performs a Gaussian blur on an input texture.
+// It uses separable convolution to perform the blur in two passes, horizontal and vertical.
+
+// Number of threads per group in each dimension.
+#define THREADS_PER_GROUP 8
+RWTexture2D<float4> _rt1;
+RWTexture2D<float4> _rt2;
+
+RWStructuredBuffer<float> gaussianKernel;
+
+int radius;
+float sigma;
+
+int resX, resY;
+
+//Horizontal blur pass.
+[numthreads(THREADS_PER_GROUP, THREADS_PER_GROUP, 1)]
+void CSHorizontalBlur(uint3 id : SV_DispatchThreadID)
+{
+    int x = id.x-1;
+    int y = id.y-1;
+    int wrapY = (y+resY)%resY;
+
+    float4 color = float4(0,0,0,1);     
+    for(int i = -radius; i <= radius; i++)
+    {
+        // wrap to avoid artifacts at edges. Use x+i to remove
+        int wrapX = (x+i+resX)%resX;
+        int2 textureIdx = int2(wrapX, wrapY);
+        color += _rt1[textureIdx] * gaussianKernel[radius + i];
+    }
+
+    _rt2[id.xy] = color;
+}
+
+// Vertical blur pass. Uses _rt2 as input
+[numthreads(THREADS_PER_GROUP, THREADS_PER_GROUP, 1)]
+void CSVerticalBlur(uint3 id : SV_DispatchThreadID)
+{
+    int x = id.x-1;
+    int y = id.y-1;
+    int wrapX = (x+resX)%resX;
+
+    float4 color = float4(0,0,0,1);     
+    for(int i = -radius; i <= radius; i++)
+    {
+        // wrap to avoid artifacts at edges. Use y+i to remove
+        int wrapY = (y+i+resY)%resY;
+        int2 textureIdx = int2(wrapX, wrapY);
+        
+        color += _rt2[textureIdx] * gaussianKernel[radius + i];
+    }
+    
+    _rt1[id.xy] = color;
+}

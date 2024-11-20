@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8145974375539631300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8145974375539631302}
+  - component: {fileID: 1138377410608900932}
+  - component: {fileID: 6913484306294139997}
+  - component: {fileID: 3033923755004147335}
+  m_Layer: 0
+  m_Name: LobbyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8145974375539631302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145974375539631300}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1138377410608900932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145974375539631300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1632580291, guid: 287b6ac364cda47bd9d9747a61ce642e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initOnStart: 0
+  joinMainRoomOnLogin: 1
+  OnRoomJoinStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRoomNotAvailable:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRoomJoinSuccess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRoomLeft:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRoomPlayerCountUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRoomJoinError:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWaitingRoomsUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWaitingRoomCreated:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWaitingRoomDeleted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUserJoinedWaitingRoom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUserLeftWaitingRoom:
+    m_PersistentCalls:
+      m_Calls: []
+  networkLoginManager: {fileID: 6913484306294139997}
+  networkEventManager: {fileID: 3033923755004147335}
+--- !u!114 &6913484306294139997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145974375539631300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 148300300, guid: 287b6ac364cda47bd9d9747a61ce642e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initOnStart: 0
+  OnConnectionStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnConnectionSuccess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnConnectionError:
+    m_PersistentCalls:
+      m_Calls: []
+  OnConnectionLost:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLoginSuccess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLoginError:
+    m_PersistentCalls:
+      m_Calls: []
+  connectOnStart: 0
+--- !u!114 &3033923755004147335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145974375539631300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 236749380, guid: 287b6ac364cda47bd9d9747a61ce642e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initOnStart: 1
+  OnResponse:
+    m_PersistentCalls:
+      m_Calls: []
+  dynamicListeners: []

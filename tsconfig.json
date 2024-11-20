@@ -1,0 +1,66 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2020",
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "inlineSourceMap": true,
+    "stripInternal": true,
+    "noImplicitAny": false,
+    "noImplicitOverride": true,
+    "skipLibCheck": true,
+    "plugins": [
+      {
+        "name": "genies-typescript-compiler"
+      }
+    ],
+    "types": [
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Cinemachine.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/DOTween.Modules.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/DOTween.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.Devkit.Experiences.CloudSave.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.Devkit.ExperiencesShared.Bindings.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.Sdk.Core.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.Sdk.external.Audio.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.Sdk.External.Avatars.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.Sdk.External.Dialogue.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.Sdk.External.Multiplayer.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.Sdk.External.Stores.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.SDK.External.Things.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.Sdk.External.Traits.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.Sdk.External.User.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.SDK.Scripting.Bindings.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.Sdk.Thirdparty.External.CharacterControllers.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Genies.Components.Services.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/global.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/mscorlib.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UniTask.DOTween.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UniTask.Linq.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UniTask.TextMeshPro.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UniTask.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Unity.InputSystem.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Unity.TextMeshPro.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/Unity.Timeline.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.AIModule.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.AnimationModule.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.AudioModule.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.CoreModule.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.IMGUIModule.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.InputLegacyModule.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.ParticleSystemModule.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.Physics2DModule.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.PhysicsModule.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.TerrainModule.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.TerrainPhysicsModule.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.UI.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.VehiclesModule.Typing/index.d.ts",
+      "/Users/jaspertucker/Documents/Experiences/FirstExperience/Assets/GeniesSdk/Typing/UnityEngine.WindModule.Typing/index.d.ts"
+    ]
+  },
+  "include": [
+    "Assets/**/*",
+    "Library/PackageCache/**/*"
+  ]
+}
